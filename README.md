@@ -167,9 +167,9 @@ system and experiments will be made available in future releases.**
 
 # Authors
 
--   Mahmoud Boghdady
--   Dr. Sherif Mazen
--   Iman Helal
+- [Mahmoud Boghdady](https://www.linkedin.com/in/mahmoud-boghdady-msc-pmp%C2%AE-6b694033/)
+- [Dr. Sherif Mazen](https://www.linkedin.com/in/dr-sherif-mazen-9a349222/)
+- [Iman Helal](https://www.linkedin.com/in/iman-helal-1819b813/)
 
 ------------------------------------------------------------------------
 
@@ -177,4 +177,4 @@ system and experiments will be made available in future releases.**
 
 MIT License
 
-Copyright (c) 2024 ProMoAgentAI
+Copyright (c) 2026 ProMoAgentAI
