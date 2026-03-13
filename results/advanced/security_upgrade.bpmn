@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL"
+                  xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+                  xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
+                  xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
+                  id="Definitions_security"
+                  targetNamespace="http://example.com/telecom"
+                  exporter="ProMoAgentAI"
+                  exporterVersion="1.0">
+
+  <bpmn:process id="Process_SecurityUpgrade" name="تنفيذ مشروع تحديث البنية الأمنية" isExecutable="true">
+
+    <bpmn:startEvent id="Start_1" name="موافقة الإدارة على التحديث">
+      <bpmn:outgoing>Flow_1</bpmn:outgoing>
+    </bpmn:startEvent>
+
+    <bpmn:userTask id="Task_1" name="تشكيل فريق المشروع">
+      <bpmn:incoming>Flow_1</bpmn:incoming>
+      <bpmn:outgoing>Flow_2</bpmn:outgoing>
+    </bpmn:userTask>
+
+    <bpmn:userTask id="Task_2" name="تقييم الوضع الحالي وتحديد الثغرات">
+      <bpmn:incoming>Flow_2</bpmn:incoming>
+      <bpmn:outgoing>Flow_3</bpmn:outgoing>
+    </bpmn:userTask>
+
+    <bpmn:userTask id="Task_3" name="تحديد الأولويات وإعداد خطة تنفيذ متعددة المراحل">
+      <bpmn:incoming>Flow_3</bpmn:incoming>
+      <bpmn:outgoing>Flow_4</bpmn:outgoing>
+    </bpmn:userTask>
+
+    <bpmn:userTask id="Task_4" name="التعاقد على الحلول الأمنية">
+      <bpmn:incoming>Flow_4</bpmn:incoming>
+      <bpmn:outgoing>Flow_5</bpmn:outgoing>
+    </bpmn:userTask>
+
+    <bpmn:subProcess id="SubProcess_1" name="تنصيب وضبط الأنظمة الأمنية">
+      <bpmn:incoming>Flow_5</bpmn:incoming>
+      <bpmn:outgoing>Flow_6</bpmn:outgoing>
+
+      <bpmn:startEvent id="SubStart_1">
+        <bpmn:outgoing>SubFlow_1</bpmn:outgoing>
+      </bpmn:startEvent>
+
+      <bpmn:task id="SubTask_1" name="تنصيب جدران نارية متقدمة">
+        <bpmn:incoming>SubFlow_1</bpmn:incoming>
+        <bpmn:outgoing>SubFlow_2</bpmn:outgoing>
+      </bpmn:task>
+
+      <bpmn:task id="SubTask_2" name="تنصيب نظام كشف اختراق">
+        <bpmn:incoming>SubFlow_2</bpmn:incoming>
+        <bpmn:outgoing>SubFlow_3</bpmn:outgoing>
+      </bpmn:task>
+
+      <bpmn:task id="SubTask_3" name="تنصيب نظام إدارة هويات">
+        <bpmn:incoming>SubFlow_3</bpmn:incoming>
+        <bpmn:outgoing>SubFlow_4</bpmn:outgoing>
+      </bpmn:task>
+
+      <bpmn:task id="SubTask_4" name="تنصيب نظام منع تسريب البيانات">
+        <bpmn:incoming>SubFlow_4</bpmn:incoming>
+        <bpmn:outgoing>SubFlow_5</bpmn:outgoing>
+      </bpmn:task>
+
+      <bpmn:endEvent id="SubEnd_1">
+        <bpmn:incoming>SubFlow_5</bpmn:incoming>
+      </bpmn:endEvent>
+
+      <bpmn:sequenceFlow id="SubFlow_1" sourceRef="SubStart_1" targetRef="SubTask_1"/>
+      <bpmn:sequenceFlow id="SubFlow_2" sourceRef="SubTask_1" targetRef="SubTask_2"/>
+      <bpmn:sequenceFlow id="SubFlow_3" sourceRef="SubTask_2" targetRef="SubTask_3"/>
+      <bpmn:sequenceFlow id="SubFlow_4" sourceRef="SubTask_3" targetRef="SubTask_4"/>
+      <bpmn:sequenceFlow id="SubFlow_5" sourceRef="SubTask_4" targetRef="SubEnd_1"/>
+    </bpmn:subProcess>
+
+    <bpmn:userTask id="Task_5" name="إجراء اختبارات اختراق">
+      <bpmn:incoming>Flow_6</bpmn:incoming>
+      <bpmn:outgoing>Flow_7</bpmn:outgoing>
+    </bpmn:userTask>
+
+    <bpmn:userTask id="Task_6" name="تدريب فريق الأمن على الأدوات الجديدة">
+      <bpmn:incoming>Flow_7</bpmn:incoming>
+      <bpmn:outgoing>Flow_8</bpmn:outgoing>
+    </bpmn:userTask>
+
+    <bpmn:userTask id="Task_7" name="تحديث السياسات والإجراءات الأمنية">
+      <bpmn:incoming>Flow_8</bpmn:incoming>
+      <bpmn:outgoing>Flow_9</bpmn:outgoing>
+    </bpmn:userTask>
+
+    <bpmn:userTask id="Task_8" name="تدريب الموظفين على الوعي الأمني">
+      <bpmn:incoming>Flow_9</bpmn:incoming>
+      <bpmn:outgoing>Flow_10</bpmn:outgoing>
+    </bpmn:userTask>
+
+    <bpmn:serviceTask id="Task_9" name="بدء المراقبة المحسنة على مدار الساعة">
+      <bpmn:incoming>Flow_10</bpmn:incoming>
+      <bpmn:outgoing>Flow_11</bpmn:outgoing>
+    </bpmn:serviceTask>
+
+    <bpmn:endEvent id="End_1" name="اكتمال التحديث الأمني">
+      <bpmn:incoming>Flow_11</bpmn:incoming>
+    </bpmn:endEvent>
+
+    <bpmn:sequenceFlow id="Flow_1" sourceRef="Start_1" targetRef="Task_1"/>
+    <bpmn:sequenceFlow id="Flow_2" sourceRef="Task_1" targetRef="Task_2"/>
+    <bpmn:sequenceFlow id="Flow_3" sourceRef="Task_2" targetRef="Task_3"/>
+    <bpmn:sequenceFlow id="Flow_4" sourceRef="Task_3" targetRef="Task_4"/>
+    <bpmn:sequenceFlow id="Flow_5" sourceRef="Task_4" targetRef="SubProcess_1"/>
+    <bpmn:sequenceFlow id="Flow_6" sourceRef="SubProcess_1" targetRef="Task_5"/>
+    <bpmn:sequenceFlow id="Flow_7" sourceRef="Task_5" targetRef="Task_6"/>
+    <bpmn:sequenceFlow id="Flow_8" sourceRef="Task_6" targetRef="Task_7"/>
+    <bpmn:sequenceFlow id="Flow_9" sourceRef="Task_7" targetRef="Task_8"/>
+    <bpmn:sequenceFlow id="Flow_10" sourceRef="Task_8" targetRef="Task_9"/>
+    <bpmn:sequenceFlow id="Flow_11" sourceRef="Task_9" targetRef="End_1"/>
+
+  </bpmn:process>
+
+  <bpmndi:BPMNDiagram id="Diagram_1">
+    <bpmndi:BPMNPlane id="Plane_1" bpmnElement="Process_SecurityUpgrade">
+      <bpmndi:BPMNShape id="Start_1_di" bpmnElement="Start_1">
+        <dc:Bounds x="152" y="102" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_1_di" bpmnElement="Task_1">
+        <dc:Bounds x="240" y="80" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_2_di" bpmnElement="Task_2">
+        <dc:Bounds x="390" y="80" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_3_di" bpmnElement="Task_3">
+        <dc:Bounds x="540" y="80" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_4_di" bpmnElement="Task_4">
+        <dc:Bounds x="690" y="80" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="SubProcess_1_di" bpmnElement="SubProcess_1" isExpanded="true">
+        <dc:Bounds x="840" y="40" width="520" height="160"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="SubStart_1_di" bpmnElement="SubStart_1">
+        <dc:Bounds x="860" y="102" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="SubTask_1_di" bpmnElement="SubTask_1">
+        <dc:Bounds x="920" y="80" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="SubTask_2_di" bpmnElement="SubTask_2">
+        <dc:Bounds x="1040" y="80" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="SubTask_3_di" bpmnElement="SubTask_3">
+        <dc:Bounds x="1160" y="80" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="SubTask_4_di" bpmnElement="SubTask_4">
+        <dc:Bounds x="1280" y="80" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="SubEnd_1_di" bpmnElement="SubEnd_1">
+        <dc:Bounds x="1312" y="162" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_5_di" bpmnElement="Task_5">
+        <dc:Bounds x="1410" y="80" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_6_di" bpmnElement="Task_6">
+        <dc:Bounds x="1560" y="80" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_7_di" bpmnElement="Task_7">
+        <dc:Bounds x="1710" y="80" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_8_di" bpmnElement="Task_8">
+        <dc:Bounds x="1860" y="80" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_9_di" bpmnElement="Task_9">
+        <dc:Bounds x="2010" y="80" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="End_1_di" bpmnElement="End_1">
+        <dc:Bounds x="2162" y="102" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1_di" bpmnElement="Flow_1">
+        <di:waypoint x="188" y="120"/>
+        <di:waypoint x="240" y="120"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_2_di" bpmnElement="Flow_2">
+        <di:waypoint x="340" y="120"/>
+        <di:waypoint x="390" y="120"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_3_di" bpmnElement="Flow_3">
+        <di:waypoint x="490" y="120"/>
+        <di:waypoint x="540" y="120"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_4_di" bpmnElement="Flow_4">
+        <di:waypoint x="640" y="120"/>
+        <di:waypoint x="690" y="120"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_5_di" bpmnElement="Flow_5">
+        <di:waypoint x="790" y="120"/>
+        <di:waypoint x="840" y="120"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_6_di" bpmnElement="Flow_6">
+        <di:waypoint x="1360" y="120"/>
+        <di:waypoint x="1410" y="120"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_7_di" bpmnElement="Flow_7">
+        <di:waypoint x="1510" y="120"/>
+        <di:waypoint x="1560" y="120"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_8_di" bpmnElement="Flow_8">
+        <di:waypoint x="1660" y="120"/>
+        <di:waypoint x="1710" y="120"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_9_di" bpmnElement="Flow_9">
+        <di:waypoint x="1810" y="120"/>
+        <di:waypoint x="1860" y="120"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_10_di" bpmnElement="Flow_10">
+        <di:waypoint x="1960" y="120"/>
+        <di:waypoint x="2010" y="120"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_11_di" bpmnElement="Flow_11">
+        <di:waypoint x="2110" y="120"/>
+        <di:waypoint x="2162" y="120"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SubFlow_1_di" bpmnElement="SubFlow_1">
+        <di:waypoint x="896" y="120"/>
+        <di:waypoint x="920" y="120"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SubFlow_2_di" bpmnElement="SubFlow_2">
+        <di:waypoint x="1020" y="120"/>
+        <di:waypoint x="1040" y="120"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SubFlow_3_di" bpmnElement="SubFlow_3">
+        <di:waypoint x="1140" y="120"/>
+        <di:waypoint x="1160" y="120"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SubFlow_4_di" bpmnElement="SubFlow_4">
+        <di:waypoint x="1260" y="120"/>
+        <di:waypoint x="1280" y="120"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SubFlow_5_di" bpmnElement="SubFlow_5">
+        <di:waypoint x="1330" y="160"/>
+        <di:waypoint x="1330" y="162"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+
+</bpmn:definitions>

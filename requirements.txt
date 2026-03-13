@@ -1,0 +1,30 @@
+# ProMoAgentAI Requirements
+# Enhanced BPMN generation with 13 specialized agents
+
+# Core framework
+streamlit>=1.29.0
+crewai>=0.80.0
+requests>=2.31.0
+python-dotenv>=1.0.0
+
+# XML processing
+xmltodict==0.13.0
+lxml==4.9.3
+
+# LLM Provider packages - as per paper Table 2
+# For GPT-5.2 (using GPT-4o)
+openai>=1.13.3
+langchain-openai>=0.1.0
+
+# For Claude Sonnet 4.5
+anthropic>=0.18.0
+langchain-anthropic>=0.1.0
+
+# For Gemini 3 (using Gemini 1.5 Pro)
+google-generativeai>=0.4.1
+langchain-google-genai>=1.0.0
+
+# Additional utilities
+aiohttp==3.9.1
+tenacity==8.2.3
+pydantic>=2.0.0
